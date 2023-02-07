@@ -32,4 +32,5 @@ RUN tar -xvzf kubeseal.tar.gz kubeseal
 RUN install -m 755 kubeseal /usr/local/bin/kubeseal
 RUN rm kubeseal.tar.gz kubeseal
 
+RUN echo "ssh-add" >> ~/.bashrc
 WORKDIR /
