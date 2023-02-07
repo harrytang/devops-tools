@@ -4,7 +4,7 @@
   "description": "[![Container Image](https://github.com/harrytang/devops-tools/actions/workflows/build.yml/badge.svg)](https://github.com/harrytang/devops-tools/actions/workflows/build.yml)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "npx standard-version && git push --follow-tags origin main"
   },
   "repository": {
     "type": "git",
