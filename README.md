@@ -1,5 +1,7 @@
 # DevOps Tools
 
+[![Container Image](https://github.com/harrytang/devops-tools/actions/workflows/build.yml/badge.svg)](https://github.com/harrytang/devops-tools/actions/workflows/build.yml)
+
 This docker image contains tools that I frequently use while working with Kubernetes .
 This Docker image contains the following components:
 
