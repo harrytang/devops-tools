@@ -25,5 +25,5 @@ For MacOS, you can use the following aliases in your `~/.zshrc` file.
 alias kubectl='docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}:/workspace -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh --workdir /workspace ghcr.io/harrytang/devops-tools kubectl'
 alias kubeseal='docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}:/workspace -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh --workdir /workspace ghcr.io/harrytang/devops-tools kubeseal'
 alias helm='docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}:/workspace -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh --workdir /workspace ghcr.io/harrytang/devops-tools helm'
-alias devops='docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}:/workspace -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.gnupg:/root/.gnupg -v $HOME/.gitconfig:/root/.gitconfig --workdir /workspace ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/bash'
+alias devops='docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}:/workspace -v $HOME/.kube:/root/.kube -v $HOME/.ssh:/root/.ssh -v $HOME/.gitconfig:/root/.gitconfig --workdir /workspace ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/bash'
 ```
