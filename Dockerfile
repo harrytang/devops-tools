@@ -2,7 +2,7 @@ FROM alpine:latest
 ARG TARGETPLATFORM
 
 # common tools
-RUN apk add --no-cache curl bash-completion bash nano docker git openssl openssh openssh-client gnupg
+RUN apk add --no-cache curl bash-completion bash nano docker git openssl openssh openssh-client
 
 # k8s
 RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; \
