@@ -1,3 +1,5 @@
+autoload -Uz compinit
+compinit
 # Description: Aliases for devops-tools
 # AWS CLI
 alias aws='docker run --rm -ti -v ~/.aws:/root/.aws amazon/aws-cli'
@@ -19,7 +21,7 @@ alias kubeseal='docker run -it --rm --net=host \
   -v ~/.cache/helm:/root/.cache/helm \
   -w /workspace ghcr.io/harrytang/devops-tools kubeseal'
 
-# kubectl
+# kubectl & helm
 if [[ $(which kubectl) =~ "not found" ]]; then \
 alias kubectl='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
@@ -30,10 +32,6 @@ alias kubectl='docker run -it --rm --net=host \
   -v ~/.config/helm:/root/.config/helm \
   -v ~/.cache/helm:/root/.cache/helm \
   -w /workspace ghcr.io/harrytang/devops-tools kubectl'; \
-else source <(kubectl completion zsh); fi
-
-# Helm
-if [[ $(which helm) =~ "not found" ]]; then \
 alias helm='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
@@ -42,7 +40,9 @@ alias helm='docker run -it --rm --net=host \
   -v ~/.helm:/root/.helm \
   -v ~/.config/helm:/root/.config/helm \
   -v ~/.cache/helm:/root/.cache/helm \
-  -w /workspace ghcr.io/harrytang/devops-tools helm'; fi
+  -w /workspace ghcr.io/harrytang/devops-tools helm'; \
+else source <(kubectl completion zsh); fi
+
 
 # devops-tools zsh
 alias devops='docker run -it --rm --net=host \
