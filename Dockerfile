@@ -2,7 +2,11 @@ FROM alpine:latest
 ARG TARGETPLATFORM
 
 # common tools
-RUN apk add --no-cache curl bash-completion bash nano docker git openssl openssh openssh-client
+RUN apk add --no-cache curl bash-completion bash zsh nano docker git openssl openssh openssh-client
+
+# Auto completion
+RUN echo "autoload -Uz compinit" >> ~/.zshrc
+RUN echo "compinit" >> ~/.zshrc
 
 # k8s
 RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; \
@@ -13,8 +17,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; \
   fi 
 RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin/kubectl
-RUN echo -e "source <(kubectl completion bash)" >> ~/.bashrc
-RUN echo "source /etc/profile.d/bash_completion.sh" >> ~/.bashrc
+RUN echo -e "source <(kubectl completion zsh)" >> ~/.zshrc
 EXPOSE 8001
 
 # helm
@@ -32,5 +35,8 @@ RUN tar -xvzf kubeseal.tar.gz kubeseal
 RUN install -m 755 kubeseal /usr/local/bin/kubeseal
 RUN rm kubeseal.tar.gz kubeseal
 
-RUN echo "ssh-add" >> ~/.bashrc
+# Color prompt
+RUN echo "export PS1='%F{green}%n%f@%F{blue}%m%f %F{cyan}%U%1~%u%f %% '" >> ~/.zshrc
+# %n@%m %1~ %# 
+RUN echo "ssh-add" >> ~/.zshrc
 WORKDIR /
