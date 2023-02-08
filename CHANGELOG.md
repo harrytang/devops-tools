@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/harrytang/devops-tools/compare/v1.2.0...v1.3.0) (2023-02-08)
+
+
+### Features
+
+* adds zsh and colors ([cd613b7](https://github.com/harrytang/devops-tools/commit/cd613b72adf48c6fdaaf425639e5659e66c6790e))
+
 ## [1.2.0](https://github.com/harrytang/devops-tools/compare/v1.1.0...v1.2.0) (2023-02-07)
 
 
