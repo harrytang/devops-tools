@@ -35,8 +35,15 @@ RUN tar -xvzf kubeseal.tar.gz kubeseal
 RUN install -m 755 kubeseal /usr/local/bin/kubeseal
 RUN rm kubeseal.tar.gz kubeseal
 
-# Color prompt
-RUN echo "export PS1='%F{green}%n%f@%F{blue}%m%f %F{cyan}%U%1~%u%f %% '" >> ~/.zshrc
-# %n@%m %1~ %# 
+# KUBESP1 color prompt
+ENV KUBEPS1_VERSION=0.8.0
+RUN curl -L https://github.com/jonmosco/kube-ps1/archive/refs/tags/v${KUBEPS1_VERSION}.tar.gz | tar xz  && \
+    cd ./kube-ps1-${KUBEPS1_VERSION} && \
+    mkdir -p /root/kube-ps1 && \ 
+    mv kube-ps1.sh /root/kube-ps1/ && \
+    rm -fr ./kube-ps1-${KUBEPS1_VERSION}
+RUN echo "source ~/kube-ps1/kube-ps1.sh" >> ~/.zshrc
+RUN echo "PS1='%F{yellow}%n%f@%F{blue}%m%f %F{cyan}%U%1~%u%f \$(kube_ps1) %% '" >> ~/.zshrc
+
 RUN echo "ssh-add" >> ~/.zshrc
 WORKDIR /
