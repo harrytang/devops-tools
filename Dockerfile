@@ -46,6 +46,7 @@ RUN echo "source ~/kube-ps1/kube-ps1.sh" >> ~/.zshrc
 RUN echo "PS1='%F{yellow}%n%f@%F{blue}%m%f %F{cyan}%U%1~%u%f \$(kube_ps1) %% '" >> ~/.zshrc
 
 # commons aliases
+# Temporary use my image until node official images update git version
 RUN echo "alias node='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
   -v \${USERHOME}/.ssh:/root/.ssh \
@@ -54,7 +55,7 @@ RUN echo "alias node='docker run --rm -it \
   -v \${USERHOME}/.helm:/root/.helm \
   -v \${USERHOME}/.config/helm:/root/.config/helm \
   -v \${USERHOME}/.cache/helm:/root/.cache/helm \
-  -w /workspace node:latest'" >> ~/.zshrc
+  -w /workspace ghcr.io/harrytang/devops-tools:node'" >> ~/.zshrc
 RUN echo "alias npm='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
   -v \${USERHOME}/.ssh:/root/.ssh \
@@ -63,7 +64,7 @@ RUN echo "alias npm='docker run --rm -it \
   -v \${USERHOME}/.helm:/root/.helm \
   -v \${USERHOME}/.config/helm:/root/.config/helm \
   -v \${USERHOME}/.cache/helm:/root/.cache/helm \
-  -w /workspace node:latest npm'" >> ~/.zshrc
+  -w /workspace ghcr.io/harrytang/devops-tools:node npm'" >> ~/.zshrc
 RUN echo "alias npx='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
   -v \${USERHOME}/.ssh:/root/.ssh \
@@ -72,7 +73,7 @@ RUN echo "alias npx='docker run --rm -it \
   -v \${USERHOME}/.helm:/root/.helm \
   -v \${USERHOME}/.config/helm:/root/.config/helm \
   -v \${USERHOME}/.cache/helm:/root/.cache/helm \
-  -w /workspace node:latest npx'" >> ~/.zshrc
+  -w /workspace ghcr.io/harrytang/devops-tools:node npx'" >> ~/.zshrc
 
 # auto load ssh key
 RUN echo "ssh-add" >> ~/.zshrc
