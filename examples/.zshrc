@@ -10,6 +10,14 @@ alias oci='docker run --rm -it -v ~/.oci:/oracle/.oci ghcr.io/oracle/oci-cli'
 # acme.sh
 alias acme.sh='docker run --rm -it -v ~/.acme.sh:/acme.sh neilpang/acme.sh'
 
+# node
+alias node='docker run --rm -it -v ${PWD}:/workspace -w /workspace node:latest'
+alias npm='docker run --rm -it -v ${PWD}:/workspace -w /workspace node:latest npm'
+alias npx='docker run --rm -it -v ${PWD}:/workspace -w /workspace node:latest npx'
+
+# php
+alias php='docker run --rm -it -v ${PWD}:/workspace -w /workspace php:latest'
+
 # kubeseal
 alias kubeseal='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
