@@ -42,7 +42,7 @@ alias kubeseal='docker run -it --rm --net=host \
   -v helm:/root/.helm \
   -v helmconfig:/root/.config/helm \
   -v helmcache:/root/.cache/helm \
-  -w /workspace ghcr.io/harrytang/devops-tools kubeseal'
+  -w /workspace ghcr.io/harrytang/devops-tools:latest kubeseal'
 
 # kubectl & helm
 if [[ $(which kubectl) =~ "not found" ]]; then \
@@ -50,24 +50,24 @@ alias kubectl='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
   -v ~/.ssh:/root/.ssh \
-  -v ~/.gitconfig:/root/.gitconfig \  
+  -v ~/.gitconfig:/root/.gitconfig \
   -v ~/.kube/config:/root/.kube/config \
   -v kubecache:/root/.kube/cache \
   -v helm:/root/.helm \
   -v helmconfig:/root/.config/helm \
   -v helmcache:/root/.cache/helm \
-  -w /workspace ghcr.io/harrytang/devops-tools kubectl'; \
+  -w /workspace ghcr.io/harrytang/devops-tools:latest kubectl'; \
 alias helm='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
   -v ~/.ssh:/root/.ssh \
-  -v ~/.gitconfig:/root/.gitconfig \  
+  -v ~/.gitconfig:/root/.gitconfig \
   -v ~/.kube/config:/root/.kube/config \
   -v kubecache:/root/.kube/cache \
   -v helm:/root/.helm \
   -v helmconfig:/root/.config/helm \
   -v helmcache:/root/.cache/helm \
-  -w /workspace ghcr.io/harrytang/devops-tools helm'; \
+  -w /workspace ghcr.io/harrytang/devops-tools:latest helm'; \
 else source <(kubectl completion zsh); fi
 
 
