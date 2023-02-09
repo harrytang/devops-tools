@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/harrytang/devops-tools/compare/v1.6.0...v1.6.1) (2023-02-09)
+
+
+### Bug Fixes
+
+* fixes removing kube-ps1 ([60c6068](https://github.com/harrytang/devops-tools/commit/60c60689618c98d2823c8f352671c566d774ba84))
+
 ## [1.6.0](https://github.com/harrytang/devops-tools/compare/v1.5.0...v1.6.0) (2023-02-09)
 
 
