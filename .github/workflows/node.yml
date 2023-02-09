@@ -2,7 +2,7 @@ name: Daily Node Container Image
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '39 * * * *'
 
 jobs:
   build:
