@@ -11,9 +11,9 @@ alias oci='docker run --rm -it -v ~/.oci:/oracle/.oci ghcr.io/oracle/oci-cli'
 alias acme.sh='docker run --rm -it -v ~/.acme.sh:/acme.sh neilpang/acme.sh'
 
 # node
-alias node='docker run --rm -it -v ${PWD}:/workspace -v ~/.npm:/root/.npm -w /workspace node:latest'
-alias npm='docker run --rm -it -v ${PWD}:/workspace -v ~/.npm:/root/.npm -w /workspace node:latest npm'
-alias npx='docker run --rm -it -v ${PWD}:/workspace -v ~/.npm:/root/.npm -w /workspace node:latest npx'
+alias node='docker run --rm -it -v ${PWD}:/workspace -v ~/.npm:/root/.npm -w /workspace ghcr.io/harrytang/devops-tools:node'
+alias npm='docker run --rm -it -v ${PWD}:/workspace -v ~/.npm:/root/.npm -w /workspace ghcr.io/harrytang/devops-tools:node npm'
+alias npx='docker run --rm -it -v ${PWD}:/workspace -v ~/.npm:/root/.npm -w /workspace ghcr.io/harrytang/devops-tools:node npx'
 
 # php
 alias php='docker run --rm -it -v ${PWD}:/workspace -w /workspace php:latest'
@@ -22,7 +22,8 @@ alias php='docker run --rm -it -v ${PWD}:/workspace -w /workspace php:latest'
 alias kubeseal='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
-  -v ~/.kube:/root/.kube \
+  -v ~/.kube/config:/root/.kube/config \
+  -v ~/.kube/cache:/root/.kube/cache \
   -v ~/.ssh:/root/.ssh \
   -v ~/.helm:/root/.helm \
   -v ~/.config/helm:/root/.config/helm \
@@ -34,7 +35,8 @@ if [[ $(which kubectl) =~ "not found" ]]; then \
 alias kubectl='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
-  -v ~/.kube:/root/.kube \
+  -v ~/.kube/config:/root/.kube/config \
+  -v ~/.kube/cache:/root/.kube/cache \
   -v ~/.ssh:/root/.ssh \
   -v ~/.helm:/root/.helm \
   -v ~/.config/helm:/root/.config/helm \
@@ -43,7 +45,8 @@ alias kubectl='docker run -it --rm --net=host \
 alias helm='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
-  -v ~/.kube:/root/.kube \
+  -v ~/.kube/config:/root/.kube/config \
+  -v ~/.kube/cache:/root/.kube/cache \
   -v ~/.ssh:/root/.ssh \
   -v ~/.helm:/root/.helm \
   -v ~/.config/helm:/root/.config/helm \
@@ -60,7 +63,8 @@ alias devops='docker run -it --rm --net=host \
   -v ${PWD}:/workspace \
   -v ~/.ssh:/root/.ssh \
   -v ~/.gitconfig:/root/.gitconfig \
-  -v ~/.kube:/root/.kube \
+  -v ~/.kube/config:/root/.kube/config \
+  -v ~/.kube/cache:/root/.kube/cache \
   -v ~/.helm:/root/.helm \
   -v ~/.config/helm:/root/.config/helm \
   -v ~/.cache/helm:/root/.cache/helm \
