@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/harrytang/devops-tools/compare/v1.5.0...v1.6.0) (2023-02-09)
+
+
+### Features
+
+* adds git prompt ([354d697](https://github.com/harrytang/devops-tools/commit/354d6971c3ac73e829672950ac1261107200e8ce))
+* adds openssh to node image ([ee356d5](https://github.com/harrytang/devops-tools/commit/ee356d5737a968686941755563f8af87699367ec))
+
 ## [1.5.0](https://github.com/harrytang/devops-tools/compare/v1.4.0...v1.5.0) (2023-02-09)
 
 
