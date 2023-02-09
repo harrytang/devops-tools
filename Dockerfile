@@ -39,10 +39,9 @@ RUN rm kubeseal.tar.gz kubeseal
 RUN mkdir /root/prompts
 # KUBESP1 color prompt
 ENV KUBEPS1_VERSION=0.8.0
-RUN curl -L https://github.com/jonmosco/kube-ps1/archive/refs/tags/v${KUBEPS1_VERSION}.tar.gz | tar xz  && \
-    cd ./kube-ps1-${KUBEPS1_VERSION} && \
-    mv kube-ps1.sh /root/prompts/ && \
-    rm -fr ./kube-ps1-${KUBEPS1_VERSION}
+RUN cd /root && curl -L https://github.com/jonmosco/kube-ps1/archive/refs/tags/v${KUBEPS1_VERSION}.tar.gz | tar xz  && \
+    mv /root/kube-ps1-${KUBEPS1_VERSION}/kube-ps1.sh /root/prompts/ && \
+    rm -fr /root/kube-ps1-${KUBEPS1_VERSION}
 RUN echo "source ~/prompts/kube-ps1.sh" >> ~/.zshrc
 
 # Git PS1 color prompt
