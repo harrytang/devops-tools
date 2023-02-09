@@ -36,7 +36,7 @@ alias kubeseal='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
   -v ~/.ssh:/root/.ssh \
-  -v ~/.gitconfig:/root/.gitconfig \  
+  -v ~/.gitconfig:/root/.gitconfig \
   -v ~/.kube/config:/root/.kube/config \
   -v kubecache:/root/.kube/cache \
   -v helm:/root/.helm \
