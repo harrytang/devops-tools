@@ -45,5 +45,12 @@ RUN curl -L https://github.com/jonmosco/kube-ps1/archive/refs/tags/v${KUBEPS1_VE
 RUN echo "source ~/kube-ps1/kube-ps1.sh" >> ~/.zshrc
 RUN echo "PS1='%F{yellow}%n%f@%F{blue}%m%f %F{cyan}%U%1~%u%f \$(kube_ps1) %% '" >> ~/.zshrc
 
+# commons aliases
+RUN echo "alias node='docker run --rm -it -v ${PWD}:/workspace -w /workspace node:latest'" >> ~/.zshrc
+RUN echo "alias npm='docker run --rm -it -v ${PWD}:/workspace -w /workspace node:latest npm'" >> ~/.zshrc
+RUN echo "alias npx='docker run --rm -it -v ${PWD}:/workspace -w /workspace node:latest npx'" >> ~/.zshrc
+
+# auto load ssh key
 RUN echo "ssh-add" >> ~/.zshrc
+
 WORKDIR /
