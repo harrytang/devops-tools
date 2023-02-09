@@ -85,6 +85,7 @@ RUN echo "alias npx='docker run --rm -it \
   -v \${USERHOME}/.helm:/root/.helm \
   -v \${USERHOME}/.config/helm:/root/.config/helm \
   -v \${USERHOME}/.cache/helm:/root/.cache/helm \
+  -v \${USERHOME}:/root/.npmrc \
   -v npm:/root/.npm \
   -w /workspace ghcr.io/harrytang/devops-tools:node npx'" >> ~/.zshrc
 

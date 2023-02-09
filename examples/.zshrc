@@ -11,9 +11,9 @@ alias oci='docker run --rm -it -v ~/.oci:/oracle/.oci ghcr.io/oracle/oci-cli'
 alias acme.sh='docker run --rm -it -v ~/.acme.sh:/acme.sh neilpang/acme.sh'
 
 # node
-alias node='docker run --rm -it -v ${PWD}:/workspace -v npm:/root/.npm -w /workspace ghcr.io/harrytang/devops-tools:node'
-alias npm='docker run --rm -it -v ${PWD}:/workspace -v npm:/root/.npm -w /workspace ghcr.io/harrytang/devops-tools:node npm'
-alias npx='docker run --rm -it -v ${PWD}:/workspace -v npm:/root/.npm -w /workspace ghcr.io/harrytang/devops-tools:node npx'
+alias node='docker run --rm -it -v ${PWD}:/workspace -v npm:/root/.npm -v ~/.npmrc:/root/.npmrc -w /workspace ghcr.io/harrytang/devops-tools:node'
+alias npm='docker run --rm -it -v ${PWD}:/workspace -v npm:/root/.npm -v ~/.npmrc:/root/.npmrc -w /workspace ghcr.io/harrytang/devops-tools:node npm'
+alias npx='docker run --rm -it -v ${PWD}:/workspace -v npm:/root/.npm -v ~/.npmrc:/root/.npmrc -w /workspace ghcr.io/harrytang/devops-tools:node npx'
 
 # php
 alias php='docker run --rm -it -v ${PWD}:/workspace -w /workspace php:latest'
