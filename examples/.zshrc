@@ -11,9 +11,22 @@ alias oci='docker run --rm -it -v ~/.oci:/oracle/.oci ghcr.io/oracle/oci-cli'
 alias acme.sh='docker run --rm -it -v ~/.acme.sh:/acme.sh neilpang/acme.sh'
 
 # node
-alias node='docker run --rm -it -v ${PWD}:/workspace -v npm:/root/.npm -v ~/.npmrc:/root/.npmrc -w /workspace ghcr.io/harrytang/devops-tools:node'
-alias npm='docker run --rm -it -v ${PWD}:/workspace -v npm:/root/.npm -v ~/.npmrc:/root/.npmrc -w /workspace ghcr.io/harrytang/devops-tools:node npm'
-alias npx='docker run --rm -it -v ${PWD}:/workspace -v npm:/root/.npm -v ~/.npmrc:/root/.npmrc -w /workspace ghcr.io/harrytang/devops-tools:node npx'
+alias node='docker run --rm -it \
+-v ${PWD}:/workspace -v npm:/root/.npm \
+-v ~/.ssh:/root/.ssh \
+-v ~/.npmrc:/root/.npmrc \
+-w /workspace ghcr.io/harrytang/devops-tools:node'
+alias npm='docker run --rm -it \
+-v ${PWD}:/workspace -v npm:/root/.npm \
+-v ~/.ssh:/root/.ssh \
+-v ~/.npmrc:/root/.npmrc \
+-w /workspace ghcr.io/harrytang/devops-tools:node npm'
+alias npx='docker run --rm -it \
+-v ${PWD}:/workspace \
+-v npm:/root/.npm \
+-v ~/.ssh:/root/.ssh \
+-v ~/.npmrc:/root/.npmrc \
+-w /workspace ghcr.io/harrytang/devops-tools:node npx'
 
 # php
 alias php='docker run --rm -it -v ${PWD}:/workspace -w /workspace php:latest'
@@ -22,12 +35,13 @@ alias php='docker run --rm -it -v ${PWD}:/workspace -w /workspace php:latest'
 alias kubeseal='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
-  -v ~/.kube/config:/root/.kube/config \
-  -v ~/.kube/cache:/root/.kube/cache \
   -v ~/.ssh:/root/.ssh \
-  -v ~/.helm:/root/.helm \
-  -v ~/.config/helm:/root/.config/helm \
-  -v ~/.cache/helm:/root/.cache/helm \
+  -v ~/.gitconfig:/root/.gitconfig \  
+  -v ~/.kube/config:/root/.kube/config \
+  -v kubecache:/root/.kube/cache \
+  -v helm:/root/.helm \
+  -v helmconfig:/root/.config/helm \
+  -v helmcache:/root/.cache/helm \
   -w /workspace ghcr.io/harrytang/devops-tools kubeseal'
 
 # kubectl & helm
@@ -35,22 +49,24 @@ if [[ $(which kubectl) =~ "not found" ]]; then \
 alias kubectl='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
-  -v ~/.kube/config:/root/.kube/config \
-  -v ~/.kube/cache:/root/.kube/cache \
   -v ~/.ssh:/root/.ssh \
-  -v ~/.helm:/root/.helm \
-  -v ~/.config/helm:/root/.config/helm \
-  -v ~/.cache/helm:/root/.cache/helm \
+  -v ~/.gitconfig:/root/.gitconfig \  
+  -v ~/.kube/config:/root/.kube/config \
+  -v kubecache:/root/.kube/cache \
+  -v helm:/root/.helm \
+  -v helmconfig:/root/.config/helm \
+  -v helmcache:/root/.cache/helm \
   -w /workspace ghcr.io/harrytang/devops-tools kubectl'; \
 alias helm='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
-  -v ~/.kube/config:/root/.kube/config \
-  -v ~/.kube/cache:/root/.kube/cache \
   -v ~/.ssh:/root/.ssh \
-  -v ~/.helm:/root/.helm \
-  -v ~/.config/helm:/root/.config/helm \
-  -v ~/.cache/helm:/root/.cache/helm \
+  -v ~/.gitconfig:/root/.gitconfig \  
+  -v ~/.kube/config:/root/.kube/config \
+  -v kubecache:/root/.kube/cache \
+  -v helm:/root/.helm \
+  -v helmconfig:/root/.config/helm \
+  -v helmcache:/root/.cache/helm \
   -w /workspace ghcr.io/harrytang/devops-tools helm'; \
 else source <(kubectl completion zsh); fi
 
@@ -64,8 +80,8 @@ alias devops='docker run -it --rm --net=host \
   -v ~/.ssh:/root/.ssh \
   -v ~/.gitconfig:/root/.gitconfig \
   -v ~/.kube/config:/root/.kube/config \
-  -v ~/.kube/cache:/root/.kube/cache \
-  -v ~/.helm:/root/.helm \
-  -v ~/.config/helm:/root/.config/helm \
-  -v ~/.cache/helm:/root/.cache/helm \
+  -v kubecache:/root/.kube/cache \
+  -v helm:/root/.helm \
+  -v helmconfig:/root/.config/helm \
+  -v helmcache:/root/.cache/helm \
   -w /workspace ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/zsh'
