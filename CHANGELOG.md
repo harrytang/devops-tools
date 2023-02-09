@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/harrytang/devops-tools/compare/v1.6.1...v1.7.0) (2023-02-09)
+
+
+### Features
+
+* npm cache volume ([cd6ad9f](https://github.com/harrytang/devops-tools/commit/cd6ad9f091158f90d75a9943acb29828ce72d430))
+
 ### [1.6.1](https://github.com/harrytang/devops-tools/compare/v1.6.0...v1.6.1) (2023-02-09)
 
 
