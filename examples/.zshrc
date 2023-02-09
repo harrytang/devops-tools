@@ -54,6 +54,7 @@ else source <(kubectl completion zsh); fi
 
 # devops-tools zsh
 alias devops='docker run -it --rm --net=host \
+  -e WORKSPACE=${PWD} \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
   -v ~/.ssh:/root/.ssh \
