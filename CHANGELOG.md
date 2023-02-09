@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/harrytang/devops-tools/compare/v1.4.0...v1.5.0) (2023-02-09)
+
+
+### Features
+
+* adds my node build image ([2948d16](https://github.com/harrytang/devops-tools/commit/2948d16e7109ab25103eb4493c16d276a9290471))
+
 ## [1.4.0](https://github.com/harrytang/devops-tools/compare/v1.3.0...v1.4.0) (2023-02-08)
 
 
