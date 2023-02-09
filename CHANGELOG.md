@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/harrytang/devops-tools/compare/v1.7.0...v1.8.0) (2023-02-09)
+
+
+### Features
+
+* loads .npmrc ([76da5ef](https://github.com/harrytang/devops-tools/commit/76da5ef36737f7239ddf7b32df26b51d2dfca02d))
+
 ## [1.7.0](https://github.com/harrytang/devops-tools/compare/v1.6.1...v1.7.0) (2023-02-09)
 
 
