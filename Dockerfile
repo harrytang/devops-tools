@@ -48,30 +48,30 @@ RUN echo "PS1='%F{yellow}%n%f@%F{blue}%m%f %F{cyan}%U%1~%u%f \$(kube_ps1) %% '" 
 # commons aliases
 RUN echo "alias node='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
-  -v ~/.ssh:/root/.ssh \
-  -v ~/.gitconfig:/root/.gitconfig \
-  -v ~/.kube:/root/.kube \
-  -v ~/.helm:/root/.helm \
-  -v ~/.config/helm:/root/.config/helm \
-  -v ~/.cache/helm:/root/.cache/helm \
+  -v \${USERHOME}/.ssh:/root/.ssh \
+  -v \${USERHOME}/.gitconfig:/root/.gitconfig \
+  -v \${USERHOME}/.kube:/root/.kube \
+  -v \${USERHOME}/.helm:/root/.helm \
+  -v \${USERHOME}/.config/helm:/root/.config/helm \
+  -v \${USERHOME}/.cache/helm:/root/.cache/helm \
   -w /workspace node:latest'" >> ~/.zshrc
 RUN echo "alias npm='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
-  -v ~/.ssh:/root/.ssh \
-  -v ~/.gitconfig:/root/.gitconfig \
-  -v ~/.kube:/root/.kube \
-  -v ~/.helm:/root/.helm \
-  -v ~/.config/helm:/root/.config/helm \
-  -v ~/.cache/helm:/root/.cache/helm \
+  -v \${USERHOME}/.ssh:/root/.ssh \
+  -v \${USERHOME}/.gitconfig:/root/.gitconfig \
+  -v \${USERHOME}/.kube:/root/.kube \
+  -v \${USERHOME}/.helm:/root/.helm \
+  -v \${USERHOME}/.config/helm:/root/.config/helm \
+  -v \${USERHOME}/.cache/helm:/root/.cache/helm \
   -w /workspace node:latest npm'" >> ~/.zshrc
 RUN echo "alias npx='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
-  -v ~/.ssh:/root/.ssh \
-  -v ~/.gitconfig:/root/.gitconfig \
-  -v ~/.kube:/root/.kube \
-  -v ~/.helm:/root/.helm \
-  -v ~/.config/helm:/root/.config/helm \
-  -v ~/.cache/helm:/root/.cache/helm \
+  -v \${USERHOME}/.ssh:/root/.ssh \
+  -v \${USERHOME}/.gitconfig:/root/.gitconfig \
+  -v \${USERHOME}/.kube:/root/.kube \
+  -v \${USERHOME}/.helm:/root/.helm \
+  -v \${USERHOME}/.config/helm:/root/.config/helm \
+  -v \${USERHOME}/.cache/helm:/root/.cache/helm \
   -w /workspace node:latest npx'" >> ~/.zshrc
 
 # auto load ssh key
