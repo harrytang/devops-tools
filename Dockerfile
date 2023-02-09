@@ -35,18 +35,29 @@ RUN tar -xvzf kubeseal.tar.gz kubeseal
 RUN install -m 755 kubeseal /usr/local/bin/kubeseal
 RUN rm kubeseal.tar.gz kubeseal
 
+# Prompts
+RUN mkdir /root/prompts
 # KUBESP1 color prompt
 ENV KUBEPS1_VERSION=0.8.0
 RUN curl -L https://github.com/jonmosco/kube-ps1/archive/refs/tags/v${KUBEPS1_VERSION}.tar.gz | tar xz  && \
     cd ./kube-ps1-${KUBEPS1_VERSION} && \
-    mkdir -p /root/kube-ps1 && \ 
-    mv kube-ps1.sh /root/kube-ps1/ && \
+    mv kube-ps1.sh /root/prompts/ && \
     rm -fr ./kube-ps1-${KUBEPS1_VERSION}
-RUN echo "source ~/kube-ps1/kube-ps1.sh" >> ~/.zshrc
-RUN echo "PS1='%F{yellow}%n%f@%F{blue}%m%f %F{cyan}%U%1~%u%f \$(kube_ps1) %% '" >> ~/.zshrc
+RUN echo "source ~/prompts/kube-ps1.sh" >> ~/.zshrc
+
+# Git PS1 color prompt
+ENV GIT_VERSION=2.39.1
+RUN wget https://raw.githubusercontent.com/git/git/v${GIT_VERSION}/contrib/completion/git-prompt.sh -O /root/prompts/git-prompt.sh
+RUN echo "source /root/prompts/git-prompt.sh" >> ~/.zshrc
+RUN echo "GIT_PS1_SHOWCOLORHINTS=1" >> ~/.zshrc
+RUN echo "GIT_PS1_SHOWSTASHSTATE=1" >> ~/.zshrc
+#RUN echo "RPROMPT='[$(__git_ps1 "(%s)")]\$'" >> ~/.zshrc
+
+# Final PS1
+#RUN echo "PS1='%F{yellow}%n%f@%F{blue}%m%f %F{cyan}%U%1~%u%f \$(kube_ps1)\$(__git_ps1 \" [%s]\") %% '" >> ~/.zshrc
+RUN echo "PS1='%F{cyan}%U%1~%u%f \$(kube_ps1)\$(__git_ps1 \" [%s]\") %% '" >> ~/.zshrc
 
 # commons aliases
-# Temporary use my image until node official images update git version
 RUN echo "alias node='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
   -v \${USERHOME}/.ssh:/root/.ssh \
