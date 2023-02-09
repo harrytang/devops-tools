@@ -1,6 +1,9 @@
 name: Daily Node Container Image
 
-on: [workflow_dispatch]
+on:
+  schedule:
+    - cron: '18 * * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,7 +28,7 @@ jobs:
       - name: Build latest
         uses: docker/build-push-action@v3
         with:
-          context: ./dockerfile/node
+          context: ./dockerfiles/node
           platforms: linux/arm64,linux/amd64
           push: true
           tags: ghcr.io/${{github.repository}}:node
