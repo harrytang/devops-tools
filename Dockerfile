@@ -66,6 +66,7 @@ RUN echo "alias node='docker run --rm -it \
   -v \${USERHOME}/.helm:/root/.helm \
   -v \${USERHOME}/.config/helm:/root/.config/helm \
   -v \${USERHOME}/.cache/helm:/root/.cache/helm \
+  -v \${USERHOME}/.npm:/root/.npm \
   -w /workspace ghcr.io/harrytang/devops-tools:node'" >> ~/.zshrc
 RUN echo "alias npm='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
@@ -75,6 +76,7 @@ RUN echo "alias npm='docker run --rm -it \
   -v \${USERHOME}/.helm:/root/.helm \
   -v \${USERHOME}/.config/helm:/root/.config/helm \
   -v \${USERHOME}/.cache/helm:/root/.cache/helm \
+  -v \${USERHOME}/.npm:/root/.npm \
   -w /workspace ghcr.io/harrytang/devops-tools:node npm'" >> ~/.zshrc
 RUN echo "alias npx='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
@@ -84,6 +86,7 @@ RUN echo "alias npx='docker run --rm -it \
   -v \${USERHOME}/.helm:/root/.helm \
   -v \${USERHOME}/.config/helm:/root/.config/helm \
   -v \${USERHOME}/.cache/helm:/root/.cache/helm \
+  -v \${USERHOME}/.npm:/root/.npm \
   -w /workspace ghcr.io/harrytang/devops-tools:node npx'" >> ~/.zshrc
 
 # auto load ssh key

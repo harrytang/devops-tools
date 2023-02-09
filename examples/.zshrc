@@ -11,9 +11,9 @@ alias oci='docker run --rm -it -v ~/.oci:/oracle/.oci ghcr.io/oracle/oci-cli'
 alias acme.sh='docker run --rm -it -v ~/.acme.sh:/acme.sh neilpang/acme.sh'
 
 # node
-alias node='docker run --rm -it -v ${PWD}:/workspace -w /workspace node:latest'
-alias npm='docker run --rm -it -v ${PWD}:/workspace -w /workspace node:latest npm'
-alias npx='docker run --rm -it -v ${PWD}:/workspace -w /workspace node:latest npx'
+alias node='docker run --rm -it -v ${PWD}:/workspace -v ~/.npm:/root/.npm -w /workspace node:latest'
+alias npm='docker run --rm -it -v ${PWD}:/workspace -v ~/.npm:/root/.npm -w /workspace node:latest npm'
+alias npx='docker run --rm -it -v ${PWD}:/workspace -v ~/.npm:/root/.npm -w /workspace node:latest npx'
 
 # php
 alias php='docker run --rm -it -v ${PWD}:/workspace -w /workspace php:latest'
@@ -64,4 +64,5 @@ alias devops='docker run -it --rm --net=host \
   -v ~/.helm:/root/.helm \
   -v ~/.config/helm:/root/.config/helm \
   -v ~/.cache/helm:/root/.cache/helm \
+  -v ~/.npm:/root/.npm \
   -w /workspace ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/zsh'
