@@ -42,7 +42,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; \
   else \
     curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64; \
   fi 
-RUN install skaffold /usr/local/bin/  
+RUN install skaffold /usr/local/bin/ && rm skaffold
 
 # Prompts
 RUN mkdir /root/prompts
