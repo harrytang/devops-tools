@@ -35,6 +35,15 @@ RUN tar -xvzf kubeseal.tar.gz kubeseal
 RUN install -m 755 kubeseal /usr/local/bin/kubeseal
 RUN rm kubeseal.tar.gz kubeseal
 
+# skaffold
+RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; \
+  then \
+    curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-arm64; \
+  else \
+    curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64; \
+  fi 
+RUN install skaffold /usr/local/bin/  
+
 # Prompts
 RUN mkdir /root/prompts
 # KUBESP1 color prompt

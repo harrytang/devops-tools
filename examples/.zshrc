@@ -70,6 +70,19 @@ alias helm='docker run -it --rm --net=host \
   -w /workspace ghcr.io/harrytang/devops-tools:latest helm'; \
 else source <(kubectl completion zsh); fi
 
+# skaffold
+alias skaffold='docker run -it --rm --net=host \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ${PWD}:/workspace \
+  -v ~/.ssh:/root/.ssh \
+  -v ~/.gitconfig:/root/.gitconfig \
+  -v ~/.kube/config:/root/.kube/config \
+  -v kubecache:/root/.kube/cache \
+  -v helm:/root/.helm \
+  -v helmconfig:/root/.config/helm \
+  -v helmcache:/root/.cache/helm \
+  -w /workspace ghcr.io/harrytang/devops-tools:latest skaffold'
+
 
 # devops-tools zsh
 alias devops='docker run -it --rm --net=host \
