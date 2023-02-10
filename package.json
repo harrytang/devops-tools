@@ -1,6 +1,6 @@
 {
   "name": "devops-tools",
-  "version": "1.8.1",
+  "version": "1.9.0",
   "description": "[![Container Image](https://github.com/harrytang/devops-tools/actions/workflows/build.yml/badge.svg)](https://github.com/harrytang/devops-tools/actions/workflows/build.yml)",
   "main": "index.js",
   "scripts": {

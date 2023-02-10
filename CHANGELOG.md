@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/harrytang/devops-tools/compare/v1.8.1...v1.9.0) (2023-02-10)
+
+
+### Features
+
+* adds skaffold ([181b096](https://github.com/harrytang/devops-tools/commit/181b0960a5c14bde19b1f0d4740627e17cfa6b46))
+
+
+### Bug Fixes
+
+* sample error command ([0549f35](https://github.com/harrytang/devops-tools/commit/0549f353573cea152f00219a8af3c0ea24b9017f))
+* sample error command ([412ef9d](https://github.com/harrytang/devops-tools/commit/412ef9d733e075ee952eeae1d8e8ff7a911638f2))
+
 ### [1.8.1](https://github.com/harrytang/devops-tools/compare/v1.8.0...v1.8.1) (2023-02-09)
 
 ## [1.8.0](https://github.com/harrytang/devops-tools/compare/v1.7.0...v1.8.0) (2023-02-09)
