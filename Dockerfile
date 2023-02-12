@@ -24,7 +24,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; \
   fi 
 RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin/kubectl
-RUN echo -e "source <(kubectl completion zsh)" >> ~/.zshrc
+RUN echo "source <(kubectl completion zsh)" >> ~/.zshrc
 EXPOSE 8001
 
 # helm
