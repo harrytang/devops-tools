@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/harrytang/devops-tools/compare/v1.9.1...v1.11.0) (2023-02-12)
+
+
+### Features
+
+* uses ubuntu base image ([13752d3](https://github.com/harrytang/devops-tools/commit/13752d347d07a8379ce312c29de057246b3aa06c))
+
+## [1.10.0](https://github.com/harrytang/devops-tools/compare/v1.9.1...v1.10.0) (2023-02-12)
+
+
+### Features
+
+* uses ubuntu base image ([13752d3](https://github.com/harrytang/devops-tools/commit/13752d347d07a8379ce312c29de057246b3aa06c))
+
 ### [1.9.1](https://github.com/harrytang/devops-tools/compare/v1.9.0...v1.9.1) (2023-02-10)
 
 
