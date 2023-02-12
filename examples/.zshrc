@@ -42,6 +42,7 @@ alias kubeseal='docker run -it --rm --net=host \
   -v helm:/root/.helm \
   -v helmconfig:/root/.config/helm \
   -v helmcache:/root/.cache/helm \
+  -v dockerconfig:/root/.docker/config.json \
   -w /workspace ghcr.io/harrytang/devops-tools:latest kubeseal'
 
 # kubectl & helm
@@ -56,6 +57,7 @@ alias kubectl='docker run -it --rm --net=host \
   -v helm:/root/.helm \
   -v helmconfig:/root/.config/helm \
   -v helmcache:/root/.cache/helm \
+  -v dockerconfig:/root/.docker \
   -w /workspace ghcr.io/harrytang/devops-tools:latest kubectl'; \
 alias helm='docker run -it --rm --net=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
@@ -67,6 +69,7 @@ alias helm='docker run -it --rm --net=host \
   -v helm:/root/.helm \
   -v helmconfig:/root/.config/helm \
   -v helmcache:/root/.cache/helm \
+  -v dockerconfig:/root/.docker \
   -w /workspace ghcr.io/harrytang/devops-tools:latest helm'; \
 else source <(kubectl completion zsh); fi
 
@@ -81,6 +84,7 @@ alias skaffold='docker run -it --rm --net=host \
   -v helm:/root/.helm \
   -v helmconfig:/root/.config/helm \
   -v helmcache:/root/.cache/helm \
+  -v dockerconfig:/root/.docker \
   -w /workspace ghcr.io/harrytang/devops-tools:latest skaffold'
 
 
@@ -97,4 +101,5 @@ alias devops='docker run -it --rm --net=host \
   -v helm:/root/.helm \
   -v helmconfig:/root/.config/helm \
   -v helmcache:/root/.cache/helm \
+  -v dockerconfig:/root/.docker \
   -w /workspace ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/zsh'

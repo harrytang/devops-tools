@@ -1,8 +1,15 @@
-FROM alpine:latest
+FROM ubuntu:latest
 ARG TARGETPLATFORM
 
-# common tools
-RUN apk add --no-cache curl bash-completion bash zsh nano docker git openssl openssh openssh-client
+####################
+### common tools ###
+####################
+
+RUN apt-get update && apt-get install -y curl wget bash-completion bash zsh nano docker git openssl openssh-client docker.io locales && rm -rf /var/lib/apt/lists/* && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.utf8
+
+# auto load ssh key
+RUN echo "ssh-add" >> ~/.zshrc
 
 # Auto completion
 RUN echo "autoload -Uz compinit" >> ~/.zshrc
@@ -44,8 +51,12 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; \
   fi 
 RUN install skaffold /usr/local/bin/ && rm skaffold
 
-# Prompts
+###############
+### Prompts ###
+###############
+
 RUN mkdir /root/prompts
+
 # KUBESP1 color prompt
 ENV KUBEPS1_VERSION=0.8.0
 RUN cd /root && curl -L https://github.com/jonmosco/kube-ps1/archive/refs/tags/v${KUBEPS1_VERSION}.tar.gz | tar xz  && \
@@ -59,13 +70,13 @@ RUN wget https://raw.githubusercontent.com/git/git/v${GIT_VERSION}/contrib/compl
 RUN echo "source /root/prompts/git-prompt.sh" >> ~/.zshrc
 RUN echo "GIT_PS1_SHOWCOLORHINTS=1" >> ~/.zshrc
 RUN echo "GIT_PS1_SHOWSTASHSTATE=1" >> ~/.zshrc
-#RUN echo "RPROMPT='[$(__git_ps1 "(%s)")]\$'" >> ~/.zshrc
 
 # Final PS1
-#RUN echo "PS1='%F{yellow}%n%f@%F{blue}%m%f %F{cyan}%U%1~%u%f \$(kube_ps1)\$(__git_ps1 \" [%s]\") %% '" >> ~/.zshrc
 RUN echo "PS1='%F{cyan}%U%1~%u%f \$(kube_ps1)\$(__git_ps1 \" [%s]\") %% '" >> ~/.zshrc
 
-# commons aliases
+###############
+### aliases ###
+###############
 RUN echo "alias node='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
   -v \${USERHOME}/.ssh:/root/.ssh \
@@ -85,8 +96,5 @@ RUN echo "alias npx='docker run --rm -it \
   -v \${USERHOME}:/root/.npmrc \
   -v npm:/root/.npm \
   -w /workspace ghcr.io/harrytang/devops-tools:node npx'" >> ~/.zshrc
-
-# auto load ssh key
-RUN echo "ssh-add" >> ~/.zshrc
 
 WORKDIR /
