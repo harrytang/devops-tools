@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/harrytang/devops-tools/compare/v1.11.1...v1.12.0) (2023-02-13)
+
+
+### Features
+
+* adds zsh to node container ([e7ac123](https://github.com/harrytang/devops-tools/commit/e7ac123f7bba84484e8195879f286f8f63372900))
+
 ### [1.11.1](https://github.com/harrytang/devops-tools/compare/v1.11.0...v1.11.1) (2023-02-12)
 
 
