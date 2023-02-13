@@ -2,7 +2,7 @@ name: Container Image
 
 on:
   schedule:
-    - cron: '19 19 * * *'
+    - cron: '19 19 * * 0'
   workflow_dispatch:
 
 jobs:

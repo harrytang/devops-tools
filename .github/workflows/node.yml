@@ -1,8 +1,8 @@
-name: Daily Node Container Image
+name: Node Container Image
 
 on:
   schedule:
-    - cron: '18 18 * * *'
+    - cron: '18 18 * * 0'
   workflow_dispatch:
 
 jobs:
