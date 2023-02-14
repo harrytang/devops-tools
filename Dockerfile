@@ -12,7 +12,8 @@ ENV LANG en_US.utf8
 # auto load ssh key
 RUN echo "ssh-add" >> ~/.zshrc
 
-# Auto completion
+# Auto completion, editor
+RUN echo "export EDITOR=nano" >> ~/.zshrc
 RUN echo "autoload -Uz compinit" >> ~/.zshrc
 RUN echo "compinit" >> ~/.zshrc
 
