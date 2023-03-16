@@ -1,0 +1,15 @@
+[user]
+	signingKey = ~/.ssh/id_ecdsa.pub
+	email = harry@powerkernel.com
+	name = Harry Tang
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[tag]
+	forceSignAnnotated = true
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+	default = current
