@@ -68,22 +68,15 @@ RUN echo "PS1='%F{cyan}%U%1~%u%f \$(kube_ps1)\$(__git_ps1 \" [%s]\") %% '" >> ~/
 ###############
 RUN echo "alias node='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
-  -v \${USERHOME}/.ssh:/root/.ssh \
-  -v \${USERHOME}/.gitconfig:/root/.gitconfig \
-  -v npm:/root/.npm \
+  -v \${USER}:/root \
   -w /workspace ghcr.io/harrytang/devops-tools:node'" >> ~/.zshrc
 RUN echo "alias npm='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
-  -v \${USERHOME}/.ssh:/root/.ssh \
-  -v \${USERHOME}/.gitconfig:/root/.gitconfig \
-  -v npm:/root/.npm \
+  -v \${USER}:/root \
   -w /workspace ghcr.io/harrytang/devops-tools:node npm'" >> ~/.zshrc
 RUN echo "alias npx='docker run --rm -it \
   -v \${WORKSPACE}:/workspace \
-  -v \${USERHOME}/.ssh:/root/.ssh \
-  -v \${USERHOME}/.gitconfig:/root/.gitconfig \
-  -v \${USERHOME}:/root/.npmrc \
-  -v npm:/root/.npm \
+  -v \${USER}:/root \
   -w /workspace ghcr.io/harrytang/devops-tools:node npx'" >> ~/.zshrc
 
 ## VOLUMES
