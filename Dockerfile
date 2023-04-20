@@ -24,6 +24,9 @@ RUN mv ./kubectl /usr/local/bin/kubectl
 RUN echo "source <(kubectl completion zsh)" >> ~/.zshrc
 EXPOSE 8001
 
+## Fluxcd
+RUN curl -s https://fluxcd.io/install.sh | bash
+
 # helm
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash 
 
@@ -62,6 +65,9 @@ RUN echo "GIT_PS1_SHOWSTASHSTATE=1" >> ~/.zshrc
 
 # Final PS1
 RUN echo "PS1='%F{cyan}%U%1~%u%f \$(kube_ps1)\$(__git_ps1 \" [%s]\") %% '" >> ~/.zshrc
+
+# Fluxcd completion
+RUN echo "source <(flux completion zsh)" >> ~/.zshrc
 
 ###############
 ### aliases ###
