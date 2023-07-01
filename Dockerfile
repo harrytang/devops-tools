@@ -43,6 +43,9 @@ RUN rm kubeseal.tar.gz kubeseal
 RUN ARCH=$(cat /root/.arch); curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-${ARCH}
 RUN install skaffold /usr/local/bin/ && rm skaffold
 
+# Git config
+RUN git config --global alias.commit 'commit --signoff'
+
 ###############
 ### Prompts ###
 ###############
