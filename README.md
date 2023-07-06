@@ -18,4 +18,4 @@ docker run -it --rm \
   -w /workspace -P ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/zsh'
 ```
 
-see [examples/.zshrc](examples/.zshrc])
+see [examples/.zshrc](examples/.zshrc)
