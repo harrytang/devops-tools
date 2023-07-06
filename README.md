@@ -1,4 +1,4 @@
-# DevOps Tools
+ub# DevOps Tools
 
 [![Container Image](https://github.com/harrytang/devops-tools/actions/workflows/build.yml/badge.svg)](https://github.com/harrytang/devops-tools/actions/workflows/build.yml)
 
@@ -19,3 +19,15 @@ docker run -it --rm \
 ```
 
 see [examples/.zshrc](examples/.zshrc)
+
+## Config
+
+Git Auth key
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+GitHub signing key
+```bash
+ssh-keygen -t ecdsa -C "your_email@example.com"
+```
