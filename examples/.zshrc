@@ -22,7 +22,7 @@ alias node='docker run --rm -it \
 # npm
 alias npm='docker run --rm -it \
 -e WORKSPACE=${PWD} \
--e USER=$(whoami) \  
+-e USER=$(whoami) \
 -v ${PWD}:/workspace -v npm:/root/.npm \
 -v $(whoami):/root \
 -w /workspace ghcr.io/harrytang/devops-tools:node npm'
@@ -30,7 +30,7 @@ alias npm='docker run --rm -it \
 # npx
 alias npx='docker run --rm -it \
 -e WORKSPACE=${PWD} \
--e USER=$(whoami) \  
+-e USER=$(whoami) \
 -v ${PWD}:/workspace \
 -v $(whoami):/root \
 -w /workspace ghcr.io/harrytang/devops-tools:node npx'
