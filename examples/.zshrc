@@ -14,7 +14,7 @@ alias acme.sh='docker run --rm -it -v ~/.acme.sh:/acme.sh neilpang/acme.sh'
 # node
 alias node='docker run --rm -it \
 -e WORKSPACE=${PWD} \
--e USER=$(whoami) \  
+-e USER=$(whoami) \
 -v ${PWD}:/workspace -v npm:/root/.npm \
 -v $(whoami):/root \
 -w /workspace ghcr.io/harrytang/devops-tools:node'
@@ -78,15 +78,6 @@ alias skaffold='docker run -it --rm \
   -v ${PWD}:/workspace \
   -v $(whoami):/root \
   -w /workspace ghcr.io/harrytang/devops-tools:latest skaffold'
-
-# devops-tools
-alias devops='docker run -it --rm \
-  -e WORKSPACE=${PWD} \
-  -e USER=$(whoami) \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v ${PWD}:/workspace \
-  -v $(whoami):/root \
-  -w /workspace -P ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/zsh'
 
 # devops-tools
 alias devops='docker run -it --rm \
