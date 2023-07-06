@@ -1,3 +1,5 @@
+[alias]
+        commit = commit --signoff
 [user]
 	signingKey = ~/.ssh/id_ecdsa.pub
 	email = harry@powerkernel.com
