@@ -1,5 +1,5 @@
 [alias]
-        commit = commit --signoff
+  commit = commit --signoff
 [user]
 	signingKey = ~/.ssh/id_ecdsa.pub
 	email = harry@powerkernel.com
@@ -15,3 +15,5 @@
 [push]
 	autoSetupRemote = true
 	default = current
+[pull]
+  rebase = true
