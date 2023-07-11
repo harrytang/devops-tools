@@ -9,6 +9,9 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then echo "arm64"; else echo "amd6
 RUN apt-get update && apt-get install -y gnupg gh curl wget bash-completion bash zsh nano docker git openssl openssh-client docker.io locales jq && rm -rf /var/lib/apt/lists/* && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
+# echo current user
+RUN echo "echo \${USER}" >> ~/.zshrc
+
 # auto load ssh key
 RUN echo "ssh-add" >> ~/.zshrc
 
