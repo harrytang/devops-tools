@@ -3,6 +3,9 @@ compinit
 
 USER=${$(whoami):-'harrytang'}
 export USER
+alias harry='. ~/harrytang.sh'
+#alias companya='. ~/CompanyA.sh'
+#alias companyb='. ~/CompanyB.sh'
 
 # Description: Aliases for devops-tools
 
