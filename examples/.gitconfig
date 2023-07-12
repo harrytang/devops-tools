@@ -1,19 +1,19 @@
 [alias]
   commit = commit --signoff
 [user]
-	signingKey = ~/.ssh/id_ecdsa.pub
-	email = harry@powerkernel.com
-	name = Harry Tang
+  signingKey = ~/.ssh/id_ecdsa.pub
+  email = harry@powerkernel.com
+  name = Harry Tang
 [commit]
-	gpgsign = true
+  gpgsign = true
 [gpg]
-	format = ssh
+  format = ssh
 [tag]
-	forceSignAnnotated = true
+  forceSignAnnotated = true
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [push]
-	autoSetupRemote = true
-	default = current
+  autoSetupRemote = true
+  default = current
 [pull]
   rebase = true
