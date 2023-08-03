@@ -16,9 +16,14 @@ RUN echo "echo \${USER}" >> ~/.zshrc
 RUN echo "ssh-add" >> ~/.zshrc
 
 # Auto completion, editor
-RUN echo "export EDITOR=nano" >> ~/.zshrc
+# RUN echo "export EDITOR=nano" >> ~/.zshrc
 RUN echo "autoload -Uz compinit" >> ~/.zshrc
 RUN echo "compinit" >> ~/.zshrc
+
+# VIM Config
+RUN echo "set expandtab" >> ~/.vimrc
+RUN echo "set tabstop=2" >> ~/.vimrc
+RUN echo "set shiftwidth=2" >> ~/.vimrc
 
 # k8s
 RUN ARCH=$(cat /root/.arch); curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/${ARCH}/kubectl
