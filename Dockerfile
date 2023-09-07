@@ -7,7 +7,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then echo "arm64"; else echo "amd6
 ####################
 
 # Add cloudflare gpg key
-RUN RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y curl
 RUN mkdir -p --mode=0755 /usr/share/keyrings
 RUN curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
 
