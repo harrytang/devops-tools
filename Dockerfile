@@ -6,7 +6,15 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then echo "arm64"; else echo "amd6
 ### common tools ###
 ####################
 
-RUN apt-get update && apt-get install -y gnupg gh curl wget bash-completion bash zsh nano vim docker git openssl openssh-client docker.io locales jq && rm -rf /var/lib/apt/lists/* && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+# Add cloudflare gpg key
+RUN RUN apt-get update && apt-get install -y curl
+RUN mkdir -p --mode=0755 /usr/share/keyrings
+RUN curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
+
+# Add this repo to your apt repositories
+RUN echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared jammy main' | tee /etc/apt/sources.list.d/cloudflared.list
+
+RUN apt-get update && apt-get install -y gnupg gh wget bash-completion bash zsh nano vim docker git openssl openssh-client docker.io locales jq cloudflared && rm -rf /var/lib/apt/lists/* && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
 # echo current user
