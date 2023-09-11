@@ -59,6 +59,9 @@ RUN rm kubeseal.tar.gz kubeseal
 RUN ARCH=$(cat /root/.arch); curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-${ARCH}
 RUN install skaffold /usr/local/bin/ && rm skaffold
 
+# rover
+RUN curl -sSL https://rover.apollo.dev/nix/latest | sh
+
 # Azure CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
