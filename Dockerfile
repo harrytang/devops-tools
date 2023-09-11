@@ -61,6 +61,7 @@ RUN install skaffold /usr/local/bin/ && rm skaffold
 
 # rover
 RUN curl -sSL https://rover.apollo.dev/nix/latest | sh
+RUN echo "export PATH=$PATH:/root/.rover/bin" >> ~/.zshrc
 
 # Azure CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
