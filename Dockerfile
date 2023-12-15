@@ -115,6 +115,8 @@ RUN echo "alias npx='docker run --rm -it \
   -w /workspace ghcr.io/harrytang/devops-tools:node npx'" >> ~/.zshrc
 RUN echo "alias nest='npx @nestjs/cli@latest'" >> ~/.zshrc
 RUN echo "alias k=kubectl" >> ~/.zshrc
+RUN echo "alias kn='kubectl config set-context --current --namespace '" >> ~/.zshrc
+RUN echo "do=\"--dry-run=client -o yaml\"" >> ~/.zshrc
 
 ## VOLUMES
 VOLUME /root
