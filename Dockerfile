@@ -114,6 +114,7 @@ RUN echo "alias npx='docker run --rm -it \
   -v \${USER}:/root \
   -w /workspace ghcr.io/harrytang/devops-tools:node npx'" >> ~/.zshrc
 RUN echo "alias nest='npx @nestjs/cli@latest'" >> ~/.zshrc
+RUN echo "alias k=kubectl" >> ~/.zshrc
 
 ## VOLUMES
 VOLUME /root
