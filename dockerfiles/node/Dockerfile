@@ -1,10 +1,4 @@
 FROM node:lts-alpine
 
-# common tools
-RUN apk add --no-cache git openssh zsh
-
-# upgrade NPM
-RUN npm -g install npm
-
-# pnpm
-RUN curl -fsSL https://get.pnpm.io/install.sh | SHELL=zsh sh -
+# Install common tools and upgrade NPM
+RUN apk add --no-cache git openssh && npm -g install npm

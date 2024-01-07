@@ -34,13 +34,6 @@ alias npm='docker run --rm -it \
   -v ${USER}:/root \
   -w /workspace ghcr.io/harrytang/devops-tools:node npm'
 
-## pnpm
-alias pnpm='docker run --rm -it \
-  -e WORKSPACE=${PWD} \
-  -e USER=${USER} \
-  -v ${USER}:/root \
-  -w /workspace ghcr.io/harrytang/devops-tools:node pnpm'  
-
 ## npx
 alias npx='docker run --rm -it \
   -e WORKSPACE=${PWD} \
