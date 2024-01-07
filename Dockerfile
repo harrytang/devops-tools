@@ -47,8 +47,8 @@ RUN curl -s https://fluxcd.io/install.sh | bash
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash 
 
 # kubeseal
-RUN echo $(curl https://api.github.com/repos/bitnami-labs/sealed-secrets/releases/latest -s | jq .tag_name -r | cut -c 2-) > /root/.kubeseal_version
-RUN KUBESEAL_VERSION=$(cat /root/.kubeseal_version); \
+RUN curl -s https://api.github.com/repos/bitnami-labs/sealed-secrets/tags | jq -r '.[0].name' | cut -c 2- > /root/.kubeseal_version
+RUN KUBESEAL_VERSION=$(cat /root/.kubeseal_version) \
     ARCH=$(cat /root/.arch); \
     wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v${KUBESEAL_VERSION}/kubeseal-${KUBESEAL_VERSION}-linux-${ARCH}.tar.gz -O kubeseal.tar.gz;
 RUN tar -xvzf kubeseal.tar.gz kubeseal
@@ -65,6 +65,9 @@ RUN echo "export PATH=$PATH:/root/.rover/bin" >> ~/.zshrc
 
 # Azure CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+# PNPM
+RUN curl -fsSL https://get.pnpm.io/install.sh | SHELL=zsh sh -
 
 # Git config
 RUN git config --global alias.commit 'commit --signoff'
