@@ -66,9 +66,6 @@ RUN echo "export PATH=$PATH:/root/.rover/bin" >> ~/.zshrc
 # Azure CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
-# PNPM
-RUN curl -fsSL https://get.pnpm.io/install.sh | SHELL=zsh sh -
-
 # Git config
 RUN git config --global alias.commit 'commit --signoff'
 
