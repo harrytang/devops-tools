@@ -7,7 +7,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then echo "arm64"; else echo "amd6
 ####################
 
 # Add cloudflare gpg key
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y curl unzip
 RUN mkdir -p --mode=0755 /usr/share/keyrings
 RUN curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
 
@@ -69,6 +69,14 @@ RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 # Git config
 RUN git config --global alias.commit 'commit --signoff'
 
+# Bun
+RUN curl -fsSL https://bun.sh/install | bash
+
+# ngrok
+RUN ARCH=$(cat /root/.arch); curl -fsSL https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-${ARCH}.tgz -o ngrok.tgz \
+    && tar -xvzf ngrok.tgz -C /usr/local/bin \
+    && rm ngrok.tgz
+
 ###############
 ### Prompts ###
 ###############
@@ -117,6 +125,8 @@ RUN echo "alias nest='npx @nestjs/cli@latest'" >> ~/.zshrc
 RUN echo "alias k=kubectl" >> ~/.zshrc
 RUN echo "alias kn='kubectl config set-context --current --namespace '" >> ~/.zshrc
 RUN echo "do=\"--dry-run=client -o yaml\"" >> ~/.zshrc
+RUN echo "export BUN_INSTALL=\"$HOME/.bun\"" >> ~/.zshrc
+RUN echo "export PATH=$BUN_INSTALL/bin:$PATH" >> ~/.zshrc
 
 ## VOLUMES
 VOLUME /root
