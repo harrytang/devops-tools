@@ -113,5 +113,8 @@ RUN echo "export BUN_INSTALL=\"$HOME/.bun\"" >> ~/.zshrc
 RUN echo "export PATH=\$BUN_INSTALL/bin:\$PATH" >> ~/.zshrc
 
 ## VOLUMES
-VOLUME /root
+VOLUME /root/.bun
+VOLUME /root/.kube
+VOLUME /root/.ssh
+VOLUME /root/.config/rover 
 WORKDIR /
