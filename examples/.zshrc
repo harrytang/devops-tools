@@ -94,3 +94,9 @@ alias devops='docker run -it --rm \
   -v ${PWD}:/workspace \
   -v ${USER}:/root \
   -w /workspace -P ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/zsh'
+
+alias dev='docker run -it --rm \
+  -e WORKSPACE=${PWD} \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v ${PWD}:/workspace \
+  -w /workspace -P ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/zsh'  

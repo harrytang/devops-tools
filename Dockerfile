@@ -126,7 +126,7 @@ RUN echo "alias k=kubectl" >> ~/.zshrc
 RUN echo "alias kn='kubectl config set-context --current --namespace '" >> ~/.zshrc
 RUN echo "do=\"--dry-run=client -o yaml\"" >> ~/.zshrc
 RUN echo "export BUN_INSTALL=\"$HOME/.bun\"" >> ~/.zshrc
-RUN echo "export PATH=$BUN_INSTALL/bin:$PATH" >> ~/.zshrc
+RUN echo "export PATH=\$BUN_INSTALL/bin:\$PATH" >> ~/.zshrc
 
 ## VOLUMES
 VOLUME /root
