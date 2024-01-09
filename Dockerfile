@@ -67,7 +67,7 @@ RUN echo "export PATH=$PATH:/root/.rover/bin" >> ~/.zshrc
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # Git config
-RUN git config --global alias.commit 'commit --signoff'
+RUN git config --global alias.commit 'commit --signoff' && git config --global init.defaultBranch main
 
 # Bun
 RUN curl -fsSL https://bun.sh/install | bash
