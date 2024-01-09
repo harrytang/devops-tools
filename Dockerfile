@@ -104,24 +104,8 @@ RUN echo "PS1='%F{cyan}%U%1~%u%f \$(kube_ps1)\$(__git_ps1 \" [%s]\") %% '" >> ~/
 RUN echo "source <(flux completion zsh)" >> ~/.zshrc
 
 ###############
-### aliases ###
+#### MISC #####
 ###############
-RUN echo "alias node='docker run --rm -it \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v \${WORKSPACE}:/workspace \
-  -v \${USER}:/root \
-  -w /workspace ghcr.io/harrytang/devops-tools:node'" >> ~/.zshrc
-RUN echo "alias npm='docker run --rm -it \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v \${WORKSPACE}:/workspace \
-  -v \${USER}:/root \
-  -w /workspace ghcr.io/harrytang/devops-tools:node npm'" >> ~/.zshrc
-RUN echo "alias npx='docker run --rm -it \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v \${WORKSPACE}:/workspace \
-  -v \${USER}:/root \
-  -w /workspace ghcr.io/harrytang/devops-tools:node npx'" >> ~/.zshrc
-RUN echo "alias nest='npx @nestjs/cli@latest'" >> ~/.zshrc
 RUN echo "alias k=kubectl" >> ~/.zshrc
 RUN echo "alias kn='kubectl config set-context --current --namespace '" >> ~/.zshrc
 RUN echo "do=\"--dry-run=client -o yaml\"" >> ~/.zshrc
