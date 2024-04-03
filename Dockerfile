@@ -69,9 +69,6 @@ RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 # Git config
 RUN git config --global alias.commit 'commit --signoff' && git config --global init.defaultBranch main
 
-# Bun
-RUN curl -fsSL https://bun.sh/install | bash
-
 # ngrok
 RUN ARCH=$(cat /root/.arch); curl -fsSL https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-${ARCH}.tgz -o ngrok.tgz \
     && tar -xvzf ngrok.tgz -C /usr/local/bin \
@@ -80,7 +77,6 @@ RUN ARCH=$(cat /root/.arch); curl -fsSL https://bin.equinox.io/c/bNyj1mQVY4c/ngr
 ###############
 ### Prompts ###
 ###############
-
 RUN mkdir /root/prompts
 
 # KUBESP1 color prompt
