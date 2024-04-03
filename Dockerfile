@@ -73,6 +73,10 @@ RUN ARCH=$(cat /root/.arch); curl -fsSL https://bin.equinox.io/c/bNyj1mQVY4c/ngr
     && tar -xvzf ngrok.tgz -C /usr/local/bin \
     && rm ngrok.tgz
 
+# node
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+RUN apt-get install -y nodejs
+
 ###############
 ### Prompts ###
 ###############
