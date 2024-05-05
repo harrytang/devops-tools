@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 ARG TARGETPLATFORM
 RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then echo "arm64"; else echo "amd64"; fi > /root/.arch
 
