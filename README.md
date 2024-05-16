@@ -44,3 +44,9 @@ export USER=CompanyX
 ```
 
 Then run `source ~/CompanyA.sh` or `. ~/CompanyB.sh` to switch to the new profile.
+
+## Usefull commands
+
+```bash
+docker run -it --rm -v $(shell pwd):/app -w /app node:20-alpine sh
+```
