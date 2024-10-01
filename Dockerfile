@@ -40,7 +40,7 @@ RUN echo "source <(kubectl completion zsh)" >> ~/.zshrc
 EXPOSE 8001
 
 ## Fluxcd
-RUN curl -s https://fluxcd.io/install.sh | bash
+RUN curl -s https://fluxcd.io/install.sh | FLUX_VERSION=2.4.0 bash
 
 # helm
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash 
