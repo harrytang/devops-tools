@@ -4,4 +4,4 @@ FROM node:20-alpine
 RUN apk add --no-cache git openssh && npm install -g npm
 
 # Install PNPM
-wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" sh -
+RUN /usr/bin/wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" sh -
