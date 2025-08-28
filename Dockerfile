@@ -14,7 +14,7 @@ RUN echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cl
 
 # Common lib
 RUN apt-get update && apt-get install -y gnupg gh wget bash-completion bash zsh vim git openssl openssh-client locales jq cloudflared && rm -rf /var/lib/apt/lists/* && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-ENV LANG en_US.utf8
+ENV LANG=en_US.utf8
 
 # echo current user
 RUN echo "echo \${USER}" >> ~/.zshrc
@@ -40,7 +40,7 @@ RUN echo "source <(kubectl completion zsh)" >> ~/.zshrc
 EXPOSE 8001
 
 ## Fluxcd
-RUN curl -s https://fluxcd.io/install.sh | FLUX_VERSION=2.4.0 bash
+RUN curl -s https://fluxcd.io/install.sh | FLUX_VERSION=2.6.4 bash
 
 # helm
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash 
