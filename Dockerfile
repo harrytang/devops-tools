@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ARG TARGETPLATFORM
 RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then echo "arm64"; else echo "amd64"; fi > /root/.arch
 
@@ -40,7 +40,7 @@ RUN echo "source <(kubectl completion zsh)" >> ~/.zshrc
 EXPOSE 8001
 
 ## Fluxcd
-RUN curl -s https://fluxcd.io/install.sh | FLUX_VERSION=2.6.4 bash
+RUN curl -s https://fluxcd.io/install.sh | bash
 
 # helm
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash 
