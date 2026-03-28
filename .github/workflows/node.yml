@@ -35,12 +35,3 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Build Node 20
-        uses: docker/build-push-action@v3
-        with:
-          context: ./dockerfiles/node20
-          platforms: linux/arm64,linux/amd64
-          push: true
-          tags: ghcr.io/${{github.repository}}:node20
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
