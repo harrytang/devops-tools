@@ -1,14 +1,3 @@
-autoload -Uz compinit
-compinit
-
-USER=${$(whoami):-'harrytang'}
-export USER
-alias harry='. ~/harrytang.sh'
-#alias companya='. ~/CompanyA.sh'
-#alias companyb='. ~/CompanyB.sh'
-
-# Description: Aliases for devops-tools
-
 ## AWS CLI
 alias aws='docker run --rm -ti -v ~/.aws:/root/.aws amazon/aws-cli'
 
@@ -93,10 +82,4 @@ alias devops='docker run -it --rm \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v ${PWD}:/workspace \
   -v ${USER}:/root \
-  -w /workspace -P ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/zsh'
-
-alias dev='docker run -it --rm \
-  -e WORKSPACE=${PWD} \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v ${PWD}:/workspace \
-  -w /workspace -P ghcr.io/harrytang/devops-tools:latest ssh-agent /bin/zsh'  
+  -w /workspace -P ghcr.io/harrytang/devops-tools:k8s ssh-agent /bin/zsh'

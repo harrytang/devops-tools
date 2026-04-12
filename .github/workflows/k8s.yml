@@ -1,4 +1,4 @@
-name: Container Image
+name: K8S tools Container Image
 
 on:
   schedule:
@@ -25,24 +25,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build latest
-        if: github.ref_name == 'main'
+      - name: Build Node LTS
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: ./dockerfiles/k8s
           platforms: linux/arm64,linux/amd64
           push: true
-          tags: ghcr.io/${{github.repository}}:latest
+          tags: ghcr.io/${{github.repository}}:k8s
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Build verion
-        if: startsWith(github.ref_name, 'v')
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          platforms: linux/arm64,linux/amd64
-          push: true
-          tags: ghcr.io/${{github.repository}}:${{github.ref_name}}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max

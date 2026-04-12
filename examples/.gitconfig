@@ -2,7 +2,7 @@
   commit = commit --signoff
 [user]
   signingKey = ~/.ssh/id_ecdsa.pub
-  email = harry@powerkernel.com
+  email = harry@maxspell.com
   name = Harry Tang
 [commit]
   gpgsign = true
