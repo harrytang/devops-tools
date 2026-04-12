@@ -25,7 +25,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Node LTS
+      - name: Build K8S tools
         uses: docker/build-push-action@v3
         with:
           context: ./dockerfiles/k8s
