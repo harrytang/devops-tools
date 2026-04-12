@@ -18,9 +18,9 @@ alias devops='docker run -it --rm \
   -v $HOME/.ssh:/home/devops/.ssh:ro \
   -v $HOME/.gitconfig:/home/devops/.gitconfig:ro \
   -w /workspaces \
-  ghcr.io/harrytang/devops:latest ssh-agent /bin/zsh'
+  ghcr.io/harrytang/devops-tools:k8s ssh-agent /bin/zsh'
 
-# Node.js CLI
+# Node.js CLI with SSH and Git config
 alias nodesh='docker run --rm -it \
 --net=host \
 -v ${PWD}:/workspaces \
