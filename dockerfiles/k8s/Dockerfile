@@ -7,7 +7,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then echo "arm64"; else echo "amd6
 ####################
 
 # Common lib - Alpine is much smaller; minimal dependencies needed
-RUN apk add --no-cache curl wget bash zsh git openssl openssh-client jq zip ca-certificates libc6-compat && \
+RUN apk add --no-cache curl wget bash zsh git openssl openssh-client jq zip ca-certificates libc6-compat gpg && \
     addgroup -S devops && \
     adduser -S devops -G devops -s /bin/zsh -h /home/devops
 
