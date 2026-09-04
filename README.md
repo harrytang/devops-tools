@@ -32,3 +32,15 @@ GitHub signing key
 ```bash
 ssh-keygen -t ecdsa -C "your_email@example.com"
 ```
+
+made `~/.gitconfig` read-only (MacOS)
+
+```bash
+chflags uchg ~/.gitconfig
+```
+
+Remove read-only
+
+```bash
+chflags nouchg ~/.gitconfig
+```
