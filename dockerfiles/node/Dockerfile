@@ -1,7 +1,7 @@
 FROM node:lts-alpine
 
 # Install common tools and upgrade NPM
-RUN apk add --no-cache git openssh zip && npm install -g npm && npm install -g pnpm@latest-10
+RUN apk add --no-cache git openssh zip && npm install -g npm && npm install -g pnpm@latest-12
 
 # Configure npm to use a home directory prefix so unprivileged user can install globally
 # and fix ownership so node user can access cache and global packages
