@@ -1,25 +1,35 @@
 FROM node:lts-alpine
 
-# Install common tools and upgrade npm
-RUN apk add --no-cache git openssh zip \
-    && npm install -g npm
+# Install common tools
+RUN apk add --no-cache git openssh zip
 
-# Configure npm global packages for the unprivileged node user
-RUN mkdir -p /home/node/.npm-global /home/node/.npm /home/node/.local/share/pnpm \
+# Directories writable by the unprivileged node user
+RUN mkdir -p \
+        /home/node/.npm-global \
+        /home/node/.npm \
+        /home/node/.local/share/pnpm \
     && chown -R node:node \
         /home/node/.npm-global \
         /home/node/.npm \
         /home/node/.local
 
+# npm global packages
 ENV npm_config_prefix=/home/node/.npm-global
-ENV PNPM_HOME=/home/node/.local/share/pnpm
-ENV PATH=$PNPM_HOME:/home/node/.npm-global/bin:$PATH
 
-# Alpine uses /bin/sh
+# pnpm
+ENV PNPM_HOME=/home/node/.local/share/pnpm
+
+# Important: pnpm 11+ puts executable in PNPM_HOME/bin
+ENV PATH=$PNPM_HOME/bin:/home/node/.npm-global/bin:$PATH
+
+# Alpine shell
 ENV SHELL=/bin/sh
 
-# Use the built-in unprivileged node user
+# Run everything as unprivileged user
 USER node
 
-# Install native pnpm binary
+# Install native pnpm
 RUN npx get-pnpm
+
+# Optional: fail Docker build immediately if pnpm isn't usable
+RUN pnpm --version
