@@ -15,8 +15,8 @@ ENV npm_config_prefix=/home/node/.npm-global
 ENV PNPM_HOME=/home/node/.local/share/pnpm
 ENV PATH=$PNPM_HOME:/home/node/.npm-global/bin:$PATH
 
-# Alpine uses /bin/bash
-ENV SHELL=/bin/bash
+# Alpine uses /bin/sh
+ENV SHELL=/bin/sh
 
 # Use the built-in unprivileged node user
 USER node
