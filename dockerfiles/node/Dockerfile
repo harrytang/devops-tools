@@ -1,38 +1,4 @@
-FROM node:lts-alpine
+FROM mcr.microsoft.com/devcontainers/javascript-node:24
 
-# Install common tools
-RUN apk add --no-cache git openssh zip
+RUN npm install --global --force npm@12 pnpm@12 playwright
 
-# Prepare writable directories for the node user
-RUN mkdir -p \
-        /home/node/.npm-global \
-        /home/node/.npm \
-        /home/node/.local/share/pnpm \
-    && touch /home/node/.shrc \
-    && chown -R node:node \
-        /home/node/.npm-global \
-        /home/node/.npm \
-        /home/node/.local \
-        /home/node/.shrc
-
-# npm global packages
-ENV npm_config_prefix=/home/node/.npm-global
-
-# pnpm
-ENV PNPM_HOME=/home/node/.local/share/pnpm
-
-# Alpine uses sh. ENV tells sh which startup file to use.
-ENV SHELL=/bin/sh
-ENV ENV=/home/node/.shrc
-
-ENV PATH=$PNPM_HOME/bin:/home/node/.npm-global/bin:$PATH
-
-USER node
-
-# Install native pnpm 12
-RUN wget -qO- https://get.pnpm.io/install.sh \
-    | env ENV="$HOME/.shrc" SHELL="$(which sh)" PNPM_VERSION=12 sh -
-
-# Verify installation during image build
-RUN which pnpm \
-    && pnpm --version
