@@ -1,14 +1,25 @@
 FROM node:lts-alpine
 
-# Install common tools and upgrade NPM
-RUN apk add --no-cache git openssh zip && npm install -g npm && npm install -g pnpm@latest-12
+# Install common tools and upgrade npm
+RUN apk add --no-cache git openssh zip \
+    && npm install -g npm
 
-# Configure npm to use a home directory prefix so unprivileged user can install globally
-# and fix ownership so node user can access cache and global packages
-RUN mkdir -p /home/node/.npm-global /home/node/.npm && \
-    chown -R 1000:1000 /home/node/.npm /home/node/.npm-global
+# Configure npm global packages for the unprivileged node user
+RUN mkdir -p /home/node/.npm-global /home/node/.npm /home/node/.local/share/pnpm \
+    && chown -R node:node \
+        /home/node/.npm-global \
+        /home/node/.npm \
+        /home/node/.local
+
 ENV npm_config_prefix=/home/node/.npm-global
-ENV PATH=/home/node/.npm-global/bin:$PATH
+ENV PNPM_HOME=/home/node/.local/share/pnpm
+ENV PATH=$PNPM_HOME:/home/node/.npm-global/bin:$PATH
 
-# Use the built-in unprivileged node user for runtime
+# Alpine uses /bin/bash
+ENV SHELL=/bin/bash
+
+# Use the built-in unprivileged node user
 USER node
+
+# Install native pnpm binary
+RUN npx get-pnpm
