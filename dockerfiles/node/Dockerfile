@@ -25,7 +25,7 @@ ENV PNPM_HOME=/home/node/.local/share/pnpm
 ENV SHELL=/bin/sh
 ENV ENV=/home/node/.shrc
 
-ENV PATH=$PNPM_HOME:/home/node/.npm-global/bin:$PATH
+ENV PATH=$PNPM_HOME/bin:/home/node/.npm-global/bin:$PATH
 
 USER node
 
